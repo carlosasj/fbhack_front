@@ -1,0 +1,20 @@
+<!-- <h1 class="mat-display-1">Qual a sua dúvida?</h1> -->
+<mat-form-field>
+  <textarea matInput placeholder="Qual a sua dúvida?" matTextareaAutosize matAutosizeMinRows="1"
+            matAutosizeMaxRows="5" [(ngModel)]="question"></textarea>
+</mat-form-field>
+<tag-input [ngModel]="tags"
+            [onlyFromAutocomplete]="false"
+            class="default-invisible"
+            [ngClass]="{'visible': question.length}"
+            [placeholder]="'Insira tags'"
+            [secondaryPlaceholder]="'Insira tags'"
+            >
+    <tag-input-dropdown [showDropdownIfEmpty]="true" [autocompleteItems]="completeChoices">
+    </tag-input-dropdown>
+</tag-input>
+<button mat-raised-button
+        color="primary"
+        (click)="irParaPesquisa()"
+        class="default-invisible margin-top"
+        [ngClass]="{'visible': question.length}">Pesquisar</button>

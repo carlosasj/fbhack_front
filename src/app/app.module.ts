@@ -1,9 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
+import { NgmatModule } from './ngmat/ngmat.module';
+import { SearchSpecialistModule } from './search-specialist/search-specialist.module';
 
 
 @NgModule({
@@ -12,7 +15,10 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    NgmatModule,
+    SearchSpecialistModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
