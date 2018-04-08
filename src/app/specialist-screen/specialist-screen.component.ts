@@ -24,13 +24,13 @@ export class SpecialistScreenComponent {
       interestSpecialist: true,
     },
     {
-      question: 'Quanto é 1+1?',
-      skills:['Matemática'],
+      question: 'Como calcular a gravidade de dois corpos?',
+      skills:['Física'],
       interestSpecialist: false,
     },
     {
-      question: 'Quanto é 0b010101010 ?',
-      skills:['Computer Science'],
+      question: 'Como balancear uma equação?',
+      skills:['Química'],
       interestSpecialist: false,
     }
   ];

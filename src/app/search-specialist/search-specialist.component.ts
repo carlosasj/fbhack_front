@@ -18,6 +18,7 @@ export class SearchSpecialistComponent implements OnInit {
       rating: 4,
       interestSpecialist: true,
       calledForAttention: false,
+      price: 'R$ 20,00/h'
     },
     {
       name: 'Júlio Fernandes Cardoso',
@@ -26,6 +27,7 @@ export class SearchSpecialistComponent implements OnInit {
       rating: 3,
       interestSpecialist: false,
       calledForAttention: false,
+      price: 'R$ 15,00/h'
     },
     {
       name: 'Sarah Rocha Correia',
@@ -34,6 +36,7 @@ export class SearchSpecialistComponent implements OnInit {
       rating: 5,
       interestSpecialist: false,
       calledForAttention: false,
+      price: 'R$ 22,00/h'
     },
   ];
 
