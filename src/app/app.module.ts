@@ -7,11 +7,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgmatModule } from './ngmat/ngmat.module';
 import { SearchSpecialistModule } from './search-specialist/search-specialist.module';
+import { SpecialistScreenComponent } from './specialist-screen/specialist-screen.component';
+import { SpecialistScreenModule } from './specialist-screen/specialist-screen.module';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -19,6 +21,7 @@ import { SearchSpecialistModule } from './search-specialist/search-specialist.mo
     BrowserAnimationsModule,
     NgmatModule,
     SearchSpecialistModule,
+    SpecialistScreenModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
