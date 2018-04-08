@@ -6,6 +6,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { TagInputModule } from 'ngx-chips';
 import { FormsModule } from '@angular/forms';
+import {MatCardModule} from '@angular/material/card';
+import {MatChipsModule} from '@angular/material/chips';
 
 
 
@@ -17,6 +19,8 @@ const ngMat = [
   MatCheckboxModule,
   TagInputModule,
   FormsModule,
+  MatCardModule,
+  MatChipsModule,
 ];
 
 @NgModule({
