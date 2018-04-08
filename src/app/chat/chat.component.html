@@ -1,15 +1,31 @@
 <div id="session-header">
-  <h1 id="session-title">{{sessionId}}</h1>
-  <input class="btn btn-large btn-danger" type="button" id="buttonLeaveSession" (click)="leaveSession()" value="Leave session">
+  <!-- <h1 id="session-title">{{sessionId}}</h1> -->
+  <!-- <input class="btn btn-large btn-danger" type="button" id="buttonLeaveSession" (click)="leaveSession()" value="Leave session"> -->
 </div>
-<div *ngIf="this.mainVideoStream" id="main-video" class="col-md-6">
-  <stream-component [stream]="this.mainVideoStream" [isMuted]="true"></stream-component>
-</div>
-<div id="video-container" class="col-md-6">
-  <div *ngIf="this.localStream" class="stream-container col-md-6 col-xs-6">
-    <stream-component [stream]="this.localStream" [isMuted]="true" (mainVideoStream)="getMainVideoStream($event)"></stream-component>
+<div class="row">
+  <div *ngIf="this.mainVideoStream" id="main-video" class="col-6">
+    <stream-component [stream]="this.mainVideoStream" [isMuted]="true"></stream-component>
   </div>
-  <div *ngFor="let s of this.remoteStreams" class="stream-container col-md-6 col-xs-6">
-    <stream-component [stream]="s" [isMuted]="false" (mainVideoStream)="getMainVideoStream($event)"></stream-component>
+
+  <div id="video-container" class="col-3">
+    <div class="row">
+      <div *ngIf="this.localStream" class="stream-container col-12">
+        <stream-component [stream]="this.localStream" [isMuted]="true" (mainVideoStream)="getMainVideoStream($event)"></stream-component>
+      </div>
+      <div *ngFor="let s of this.remoteStreams" class="stream-container col-12">
+        <stream-component [stream]="s" [isMuted]="false" (mainVideoStream)="getMainVideoStream($event)"></stream-component>
+      </div>
+    </div>
+  </div>
+  <div class="col-3">
+    <div class="chat">
+      <mat-form-field>
+        <textarea matInput matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5" [(ngModel)]="question"></textarea>
+      </mat-form-field>
+      <div class="chatfeed">
+        <div class="text mine"><div>olá</div></div>
+        <div class="text their"><div>olá</div></div>
+      </div>
+    </div>
   </div>
 </div>

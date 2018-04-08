@@ -28,6 +28,7 @@ export class ChatComponent implements OnInit {
     private route: ActivatedRoute,
   ) {
     this.generateParticipantInfo();
+    this.userName = localStorage.getItem('username') || 'Nome do usuário';
   }
 
   @HostListener('window:beforeunload')
