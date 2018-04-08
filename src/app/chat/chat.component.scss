@@ -1,0 +1,38 @@
+.chat {
+    height: calc(100vh - 80px);
+    display: flex;
+    flex-flow: column-reverse;
+    font-family: "Roboto", sans-serif;
+}
+
+.chatfeed {
+    flex-flow: column;
+    display: flex;
+}
+
+.text {
+    &.mine,
+    &.their {
+        margin-bottom: .3rem;
+        display: flex;
+        div {
+            border-radius: 1000px;
+            padding: 0.5rem 0.9rem;
+        }
+    }
+
+    &.mine {
+        align-items: flex-end;
+        flex-direction: column;
+        div {
+            background-color: #004f78;
+            color: #fff;
+        }
+    }
+
+    &.their {
+        div {
+            background-color: #ddd;
+        }
+    }
+}
