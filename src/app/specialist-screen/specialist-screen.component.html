@@ -1,5 +1,54 @@
+<div class="flex-row">
 <div class="side">
-  <p>
-    specialist-screen works!
-  </p>
+    <div class="row container">
+      <div class="aaa" > 
+        <div class="gold">
+          <img mat-card-image [src]="specialist.photo" class="circle">
+          <mat-card-header class="flex-column">
+            <div class="nomespec">
+              <mat-card-title class="white-color">{{specialist.name}}</mat-card-title>
+            </div>
+            <div class="rating">
+              <mat-card-subtitle>
+                <i class="material-icons gold-text" *ngIf="specialist.rating >= 1">star</i>
+                <i class="material-icons gold-text" *ngIf="specialist.rating >= 2">star</i>
+                <i class="material-icons gold-text" *ngIf="specialist.rating >= 3">star</i>
+                <i class="material-icons gold-text" *ngIf="specialist.rating >= 4">star</i>
+                <i class="material-icons gold-text" *ngIf="specialist.rating >= 5">star</i>
+                <i class="material-icons gold-text" *ngIf="specialist.rating < 5">star_border</i>
+                <i class="material-icons gold-text" *ngIf="specialist.rating < 4">star_border</i>
+                <i class="material-icons gold-text" *ngIf="specialist.rating < 3">star_border</i>
+                <i class="material-icons gold-text" *ngIf="specialist.rating < 2">star_border</i>
+              </mat-card-subtitle>
+            </div>
+          </mat-card-header>
+
+          <mat-card-content>
+            <mat-chip-list>
+              <mat-chip *ngFor="let skill of specialist.skills">{{skill}}</mat-chip>
+            </mat-chip-list>
+          </mat-card-content>
+
+        </div>
+      </div>
+    </div>
+
+</div>
+  <div class="flex-column">
+    <div class="card" *ngFor="let q of questions">
+        <mat-card [ngClass]="{'highlight': q.interestSpecialist}">
+            <mat-card-header>
+              <mat-card-title>{{q.question}}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <mat-chip-list>
+                  <mat-chip *ngFor="let skill of q.skills">{{skill}}</mat-chip>
+              </mat-chip-list>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-raised-button>Aceitar</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>  
+  </div>
 </div>
