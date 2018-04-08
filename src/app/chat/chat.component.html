@@ -18,14 +18,13 @@
     </div>
   </div>
   <div class="col-3">
-    <div class="chat">
+    <form class="chat" (ngSubmit)="submit(message)">
       <mat-form-field>
-        <textarea matInput matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5" [(ngModel)]="question"></textarea>
+        <input autocomplete="off" type="text" matInput matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5" name="message" [(ngModel)]="message">
       </mat-form-field>
       <div class="chatfeed">
-        <div class="text mine"><div>olá</div></div>
-        <div class="text their"><div>olá</div></div>
+        <div class="text" [ngClass]="{'mine': isTutor == m.isTutor, 'their': isTutor != m.isTutor}" *ngFor="let m of messages"><div>{{m.message}}</div></div>
       </div>
-    </div>
+    </form>
   </div>
 </div>

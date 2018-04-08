@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-specialist-screen',
   templateUrl: './specialist-screen.component.html',
   styleUrls: ['./specialist-screen.component.scss']
 })
-export class SpecialistScreenComponent implements OnInit {
+export class SpecialistScreenComponent {
 
   public specialist = {
       name: 'Amanda Rocha Sousa',
@@ -34,9 +35,12 @@ export class SpecialistScreenComponent implements OnInit {
     }
   ];
 
-  constructor() { }
+  constructor(
+    private router: Router,
+  ) { }
 
-  ngOnInit() {
+  public startChat(user) {
+    this.router.navigate(['/chat/' + 'btc0l5_' ]);
   }
 
 }

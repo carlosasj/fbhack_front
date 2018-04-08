@@ -1,7 +1,7 @@
 <div class="flex-row">
 <div class="side">
     <div class="row container">
-      <div class="aaa" > 
+      <div class="aaa" >
         <div class="gold">
           <img mat-card-image [src]="specialist.photo" class="circle">
           <mat-card-header class="flex-column">
@@ -46,9 +46,9 @@
               </mat-chip-list>
             </mat-card-content>
             <mat-card-actions>
-              <button mat-raised-button>Aceitar</button>
+              <button (click)="startChat(q)" mat-raised-button>Aceitar</button>
             </mat-card-actions>
         </mat-card>
-    </div>  
+    </div>
   </div>
 </div>

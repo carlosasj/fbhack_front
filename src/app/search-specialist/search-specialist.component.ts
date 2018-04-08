@@ -53,7 +53,7 @@ export class SearchSpecialistComponent implements OnInit {
   }
 
   public startChat(specialist) {
-    this.router.navigate(['/chat/' + Math.random().toString(36).substring(7) ]);
+    this.router.navigate(['/chat/' + 'btc0l5' ]);
   }
 
 }

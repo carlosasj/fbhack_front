@@ -9,6 +9,11 @@ import { OpenVidu, Session, Stream } from 'openvidu-browser';
 })
 export class ChatComponent implements OnInit {
 
+  public message = '';
+  public messages = [];
+  private timer;
+  private isTutor = false;
+
   OV: OpenVidu;
   session: Session;
 
@@ -18,7 +23,7 @@ export class ChatComponent implements OnInit {
 
   // Join form
   sessionId: string;
-  userName = localStorage.getItem('username') || 'Nome do usuário';
+  userName = '';
 
   // Main video of the page, will be 'localStream' or one of the 'remoteStreams',
   // updated by an Output event of StreamComponent children
@@ -28,18 +33,21 @@ export class ChatComponent implements OnInit {
     private route: ActivatedRoute,
   ) {
     this.generateParticipantInfo();
-    this.userName = localStorage.getItem('username') || 'Nome do usuário';
+    this.isTutor = this.route.snapshot.params.roomId.endsWith('_');
+    this.userName = this.isTutor ? 'Nome do especialista' : 'Nome do usuário';
   }
 
   @HostListener('window:beforeunload')
   beforeunloadHandler() {
     // On window closed leave session
     this.leaveSession();
+    clearInterval(this.timer);
   }
 
   ngOnDestroy() {
     // On component destroyed leave session
     this.leaveSession();
+    clearInterval(this.timer);
   }
 
   joinSession() {
@@ -136,6 +144,7 @@ export class ChatComponent implements OnInit {
     if (index > -1) {
       this.remoteStreams.splice(index, 1);
     }
+    clearInterval(this.timer);
   }
 
   private getMainVideoStream(stream: Stream) {
@@ -144,7 +153,17 @@ export class ChatComponent implements OnInit {
 
   ngOnInit() {
     this.sessionId = this.route.snapshot.params.roomId;
+    this.sessionId = this.sessionId.endsWith('_') ? this.sessionId.substr(0, this.sessionId.length - 1) : this.sessionId;
     this.joinSession();
+    this.timer = setInterval(() => {
+      this.messages = JSON.parse(localStorage.getItem('messages')) || [];
+    }, 500);
+  }
+
+  submit(message) {
+    this.messages.push({isTutor: this.isTutor, message});
+    localStorage.setItem('messages', JSON.stringify(this.messages));
+    this.message = '';
   }
 
 }
